@@ -1,0 +1,8 @@
+{
+  "isLocal": true,
+  "API_URL": {
+    "development": "",
+    "production": "",
+    "local": "http://localhost:3001/api"
+  }
+}
