@@ -24,3 +24,16 @@ body {
 	font-weight: bold;
 	overflow: hidden;
 }
+
+.container {
+	position: relative;
+	width: 1920px;
+	height: 1080px;
+}
+
+.temp-bg-sms { // 삭제예정
+	background-image: url(../assets/images/sms.png);
+}
+.temp-bg-nms { // 삭제예정
+	background-image: url(../assets/images/nms.png);
+}

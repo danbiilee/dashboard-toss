@@ -1,6 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
+import { Provider } from "react-redux";
+import store from "./redux";
 import "./scss/main.scss";
+import App from "./App";
 
 (async () => {
   const nodeEnv = process.env.NODE_ENV;
@@ -11,5 +14,10 @@ import "./scss/main.scss";
   if (window.GLOBAL_CONFIG.isLocal)
     window.API_URL = window.GLOBAL_CONFIG.API_URL.local;
 
-  render(<div>Hello World</div>, document.getElementById("root"));
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById("root")
+  );
 })();
