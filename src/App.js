@@ -4,7 +4,7 @@ import { fetchData } from "../src/redux/testSlice";
 import { resize } from "./helpers/index";
 
 const App = () => {
-  const str = "App123";
+  const str = "App123ddddd";
   const dispatch = useDispatch();
   dispatch(fetchData());
 
