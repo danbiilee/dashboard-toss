@@ -1,7 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import TopContainer from "./TopContainer";
 import ServerContainer from "./ServerContainer";
 
+const S = {
+  BackgroundImage: styled.div`
+    background-image: url("../../assets/images/sms.png");
+  `,
+};
 const SMSPage = () => {
   const topLayout = {
     width: "1898px",
@@ -17,6 +23,7 @@ const SMSPage = () => {
   };
   return (
     <>
+      <S.BackgroundImage className="bg" />
       <TopContainer style={topLayout} />
       <ServerContainer style={centerLayout} />
     </>

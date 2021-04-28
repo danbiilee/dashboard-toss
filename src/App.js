@@ -9,7 +9,7 @@ import { resize } from "./helpers";
 
 const S = {
   BackgroundImage: styled.div`
-    background-image: url("../assets/images/common/toss-sms.png");
+    background-image: url("../assets/images/sms.png");
   `,
 };
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
         <S.BackgroundImage className="bg" />
         <Switch>
           <Route exact path="/" component={SMSPage} />
-          <Route path="/nms" component={NMSPage} />
+          <Route className="nms" path="/nms" component={NMSPage} />
         </Switch>
       </div>
     </>
