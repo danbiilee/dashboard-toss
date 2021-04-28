@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const H2 = styled.h2`
@@ -20,8 +21,8 @@ const H2 = styled.h2`
 `;
 
 const CenterName = ({ data, style }) => {
-  // react-router: match.params
-  const page = 'sms';
+  const { path } = useRouteMatch();
+  const page = path.includes('nms') ? 'nms' : 'sms';
 
   return (
     <H2 style={style} page={page}>
