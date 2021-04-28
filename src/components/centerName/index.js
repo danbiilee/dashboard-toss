@@ -1,14 +1,15 @@
-import React from 'react';
-import { useRouteMatch } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import { useRouteMatch } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 const H2 = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
-  ${props =>
-    props.page === 'sms'
+  ${(props) =>
+    props.page === "sms"
       ? css`
           background-color: #f2f4f6;
           border: 1px solid #cccccc;
@@ -22,13 +23,18 @@ const H2 = styled.h2`
 
 const CenterName = ({ data, style }) => {
   const { path } = useRouteMatch();
-  const page = path.includes('nms') ? 'nms' : 'sms';
+  const page = path.includes("nms") ? "nms" : "sms";
 
   return (
     <H2 style={style} page={page}>
       {data.centerName}
     </H2>
   );
+};
+
+CenterName.propTypes = {
+  data: PropTypes.object,
+  style: PropTypes.object,
 };
 
 export default CenterName;
