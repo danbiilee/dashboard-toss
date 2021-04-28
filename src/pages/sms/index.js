@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import TopContainer from "./TopContainer";
-import ServerContainer from "./ServerContainer";
+import NonhyeonContainer from "./NonhyeonContainer";
+import KimpoContainer from "./KimpoContainer";
+import DevelopContainer from "./developContainer";
 
 const S = {
   BackgroundImage: styled.div`
@@ -9,23 +10,30 @@ const S = {
   `,
 };
 const SMSPage = () => {
-  const topLayout = {
-    width: "1898px",
-    height: "70px",
+  const NonhyeonLayout = {
+    width: "790px",
+    height: "1010px",
     top: "65px",
     left: "12px",
   };
-  const centerLayout = {
-    width: "1898px",
-    height: "942px",
-    top: "134px",
-    left: "12px",
+  const KimpoLayout = {
+    width: "790px",
+    height: "1010px",
+    top: "65px",
+    left: "845px",
+  };
+  const DevelopLayout = {
+    width: "229px",
+    height: "1010px",
+    top: "65px",
+    left: "1680px",
   };
   return (
     <>
       <S.BackgroundImage className="bg" />
-      <TopContainer style={topLayout} />
-      <ServerContainer style={centerLayout} />
+      <NonhyeonContainer style={NonhyeonLayout} />
+      <KimpoContainer style={KimpoLayout} />
+      <DevelopContainer style={DevelopLayout} />
     </>
   );
 };
