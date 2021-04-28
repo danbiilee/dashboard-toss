@@ -24,3 +24,25 @@ body {
 	font-weight: bold;
 	overflow: hidden;
 }
+.container {
+    position: relative;
+    height: 969px;
+}
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -1;
+    opacity: 1;
+}
+.bg.sms {
+    background-image: url("/src/assets/images/common/toss-sms.png");
+}
+.bg.nms {
+    background-image: url("/src/assets/images/common/toss-nms.png");
+}
+.p-abs {
+    position: absolute;
+}
