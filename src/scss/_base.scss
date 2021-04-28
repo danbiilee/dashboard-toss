@@ -24,6 +24,7 @@ body {
 	font-weight: bold;
 	overflow: hidden;
 }
+<<<<<<< HEAD
 
 .container {
 	position: relative;
@@ -36,4 +37,27 @@ body {
 }
 .temp-bg-nms { // 삭제예정
 	background-image: url(../assets/images/nms.png);
+=======
+.container {
+    position: relative;
+    height: 969px;
+}
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -1;
+    opacity: 1;
+}
+.bg.sms {
+    background-image: url("/src/assets/images/common/toss-sms.png");
+}
+.bg.nms {
+    background-image: url("/src/assets/images/common/toss-nms.png");
+}
+.p-abs {
+    position: absolute;
+>>>>>>> d0d1070797cb19bdde3208fd97728c2b00ad76f1
 }
