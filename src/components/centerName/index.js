@@ -7,7 +7,7 @@ const H2 = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   ${(props) =>
     props.page === "sms"
       ? css`
