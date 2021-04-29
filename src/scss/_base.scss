@@ -26,7 +26,9 @@ body {
 }
 .container {
     position: relative;
-    height: 969px;
+    width: 1920px;
+	height: 1080px;
+
 }
 .bg {
     position: absolute;
@@ -36,12 +38,6 @@ body {
     height: 1080px;
     z-index: -1;
     opacity: 1;
-}
-.bg.sms {
-    background-image: url("/src/assets/images/common/toss-sms.png");
-}
-.bg.nms {
-    background-image: url("/src/assets/images/common/toss-nms.png");
 }
 .p-abs {
     position: absolute;
