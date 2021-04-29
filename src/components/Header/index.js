@@ -1,7 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Clock from "./Clock";
 
 const Header = () => {
+  const ClockStyle = {
+    fontSize: "17pt",
+    left: "1660px",
+    marginTop: "15px",
+  };
   return (
     <nav className="header">
       <ul className="header__items">
@@ -14,6 +20,7 @@ const Header = () => {
           <NavLink to="/nms">NMS</NavLink>
         </li>
       </ul>
+      <Clock style={ClockStyle} />
     </nav>
   );
 };

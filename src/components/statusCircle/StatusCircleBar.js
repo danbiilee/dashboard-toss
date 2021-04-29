@@ -16,11 +16,11 @@ const ItemWrapper = styled.div`
   align-items: center;
   &:not(:last-of-type)::after {
     content: "|";
-    margin: 0 0.5em;
+    margin: 0 10px;
     color: #d6d8de;
   }
   .value {
-    margin-left: 0.2em;
+    margin-left: 4px;
   }
 `;
 
