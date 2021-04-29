@@ -5,7 +5,7 @@ import Clock from "./Clock";
 const Header = () => {
   const ClockStyle = {
     fontSize: "17pt",
-    left: "1677px",
+    left: "1660px",
     marginTop: "15px",
   };
   return (
