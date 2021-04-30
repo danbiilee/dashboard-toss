@@ -10,10 +10,9 @@ const Wrapper = styled.span`
   background-color: ${(props) => props.theme.color.statusColor[props.status]};
 `;
 
-const StatusCircle = ({ data: { status }, size }) => {
-  return <Wrapper status={status} size={size} />;
-};
-
+const StatusCircle = ({ data: { status }, size }) => (
+  <Wrapper status={status} size={size} />
+);
 StatusCircle.propTypes = {
   data: PropTypes.object,
   size: PropTypes.string,
