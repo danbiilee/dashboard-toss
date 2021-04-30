@@ -18,19 +18,19 @@ const NMSPage = () => {
     left: "12px",
   };
   const firstLayout = {
-    width: "1898px",
+    width: "1908px",
     height: "227px",
     top: "134px",
     left: "12px",
   };
   const secondLayout = {
-    width: "1898px",
+    width: "1908px",
     height: "419px",
     top: "365px",
     left: "12px",
   };
   const thirdLayout = {
-    width: "1898px",
+    width: "1908px",
     height: "255px",
     top: "795px",
     left: "12px",
