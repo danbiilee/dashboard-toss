@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const S = {
   LayoutImage: styled.div`
-    background-image: url("../assets/images/common/toss-nms.png");
+    /* background-image: url("../assets/images/common/toss-nms.png"); */
     width: 1920px;
     height: 1080px;
     opacity: 1;
