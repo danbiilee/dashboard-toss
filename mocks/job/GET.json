@@ -1,0 +1,100 @@
+{
+  "job": [
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "ME",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(생산실행)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "PS",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(생산계획)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "RD",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "연구개발(R)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "PC",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(공정제어)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 64.87619018554688,
+      "LEVEL1": "SC",
+      "CPU_MAX_VAL": 94.5425,
+      "CPU_AVG_VAL": 11.623152882792429,
+      "NAME": "경영지원(S)",
+      "MEM_AVG_VAL": 55.474765689671244
+    },
+    {
+      "MEM_MAX_VAL": 85.7314682006836,
+      "LEVEL1": "SM",
+      "CPU_MAX_VAL": 28.090909090909086,
+      "CPU_AVG_VAL": 7.94343102552718,
+      "NAME": "마케팅(M)",
+      "MEM_AVG_VAL": 85.24183437461527
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "MH",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(물류제어)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "CM",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(공통)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "EC",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(장비제어)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "EE",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(장비효율)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "YM",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(품질분석)",
+      "MEM_AVG_VAL": 0
+    },
+    {
+      "MEM_MAX_VAL": 0,
+      "LEVEL1": "MI",
+      "CPU_MAX_VAL": 0,
+      "CPU_AVG_VAL": 0,
+      "NAME": "생산(생산분석)",
+      "MEM_AVG_VAL": 0
+    }
+  ]
+}
