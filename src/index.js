@@ -3,9 +3,12 @@ import { render } from "react-dom";
 import { HashRouter } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components";
 import rootReducer from "./reducers";
+import theme from "./helpers/theme";
 import "./scss/main.scss";
 import App from "./App";
+
 (async () => {
   const nodeEnv = process.env.NODE_ENV;
   const store = createStore(rootReducer);
@@ -19,7 +22,9 @@ import App from "./App";
   render(
     <HashRouter>
       <Provider store={store}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </Provider>
     </HashRouter>,
     document.getElementById("root")

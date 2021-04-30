@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   height: 30px;
   padding: 0 5px;
   margin: 2px 2px 2px 0;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.theme.color.statusColor[props.status]};
   border-radius: 3px;
   color: white;
   line-height: 30px;
@@ -18,17 +18,9 @@ const Wrapper = styled.div`
   white-space: nowrap;
 `;
 
-const Server = ({ server: { status, serverName } }) => {
-  const colorCode = {
-    0: "#d43f3a", // red
-    1: "#ff8417", // orange
-    2: "#8c9497", // gray
-    3: "#99c165", // green
-  };
-  const color = colorCode[status];
-
-  return <Wrapper color={color}>{serverName}</Wrapper>;
-};
+const Server = ({ server: { status, serverName } }) => (
+  <Wrapper status={status}>{serverName}</Wrapper>
+);
 
 Server.propTypes = {
   server: PropTypes.object,
