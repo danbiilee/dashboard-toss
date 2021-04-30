@@ -1,10 +1,19 @@
 import TweenMax from "gsap";
 
+const timeout = (s) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // reject(new Error(`${s}seconds timeout`));
+      resolve(true);
+    }, s * 1000);
+  });
+};
+
 export const callAPI = async (url) => {
   const fetchPro = fetch(url);
-  const result = await fetchPro;
-  const data = await result.json();
-  return data;
+  const fetchRes = await Promise.race([fetchPro, timeout(10)]);
+  const response = await fetchRes.json();
+  return response;
 };
 
 export const resize = () => {
@@ -20,5 +29,3 @@ export const resize = () => {
     transformOrigin: "0% 0%",
   });
 };
-
-export const clock = () => null;
