@@ -71,6 +71,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       IMAGE_PATH: JSON.stringify("./assets/images"),
+      SMS: JSON.stringify("sms"),
+      NMS: JSON.stringify("nms"),
     }),
   ],
 };
