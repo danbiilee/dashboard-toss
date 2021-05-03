@@ -16,7 +16,8 @@
         "GLOBAL_CONFIG": "readonly",
         "SMS": "readonly",
         "NMS": "readonly",
-        "API_URL": "writable"
+        "API_URL": "writable",
+        "API_ID": "writable"
     },
     "parser": "babel-eslint",
     "ignorePatterns": ["node_modules", "dist", "public/index.html"],

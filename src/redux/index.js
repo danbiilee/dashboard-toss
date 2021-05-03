@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import testReducer from "./testSlice";
-import uiReducer from "./uiSlice";
+import smsReducer from "./smsSlice";
 
 export default configureStore({
   reducer: {
-    test: testReducer,
-    ui: uiReducer,
+    sms: smsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
