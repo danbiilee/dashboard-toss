@@ -50,11 +50,7 @@ const Clock = ({ style }) => {
     return `${year}-${month}-${date} ${days} ${hour}:${minute}`;
   };
   const formatDate = getFormattedDate(dateTime);
-  return (
-    <h1 className="p-abs" style={style}>
-      {formatDate}
-    </h1>
-  );
+  return <h1 style={style}>{formatDate}</h1>;
 };
 Clock.propTypes = {
   style: PropTypes.object,

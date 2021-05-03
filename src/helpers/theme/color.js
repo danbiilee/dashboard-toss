@@ -5,24 +5,14 @@ const color = {
     2: "#8c9497", // gray
     3: "#99c165", // green
   },
-  header: {
-    sms: {
-      activeBackground: "#425363",
-      activeBorderTop: "5px solid #79ab3d",
-      activeColor: "#fff",
-      background: "#fff",
-      inactiveColor: "#333d4b",
-      borderBottom: "2px solid #425363",
-    },
-    nms: {
-      activeBackground: "#000",
-      activeBorderTop: "5px solid #67faff",
-      activeColor: "#fff",
-      background: "#292b31",
-      inactiveColor: "#666c7e",
-      borderBottom: "0",
-    },
-  },
+  green: "#79ab3d",
+  white: "#fff",
+  black: "#000",
+  darkGrey1: "#425363",
+  darkGrey2: "#333d4b",
+  darkGrey3: "#292b31",
+  darkGrey4: "#666c7e",
+  skyblue: "#67faff",
 };
 
 export default color;

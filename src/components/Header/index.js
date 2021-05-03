@@ -1,18 +1,30 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { clickTab } from "../../redux/uiSlice";
+import { NavLink, useLocation } from "react-router-dom";
 import theme from "../../helpers/theme";
+import Clock from "./Clock";
 
 const GlobalStyle = createGlobalStyle`
   .header {
     color: #425363;
     font-size: 18px;
     height: 56px;
-    border-bottom: ${(props) => props.theme.borderBottom};
+    border-bottom: ${({ theme }) => theme.borderBottom};
     z-index: 999; // 이미지 없애면 삭제 할 것
-    background-color: ${(props) => props.theme.background}
+    background-color: ${({ theme }) => theme.background};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+      background-image: ${({ tab }) => `url(${IMAGE_PATH}/logo-${tab}.png)`};
+      width: 194px;
+      height: 28px;
+    }
+    &__clock {
+      color: ${({ theme }) => theme.clockColor};
+      transform: translateX(-30px);
+    }
   }
 
   .tab {
@@ -24,37 +36,41 @@ const GlobalStyle = createGlobalStyle`
     &__item {
       cursor: pointer;
     }
+
     &__link {
       padding: 17px 33px;
       display: block;
-      background-color: ${(props) => props.theme.background};
-      color: ${(props) => props.theme.inactiveColor};
+      background-color: ${({ theme }) => theme.background};
+      color: ${({ theme }) => theme.inactiveColor};
       text-decoration: none;
       text-transform: uppercase;
 
       &.active {
-        color: ${(props) => props.theme.activeColor};
-        background-color: ${(props) => props.theme.activeBackground};
+        color: ${({ theme }) => theme.activeColor};
+        background-color: ${({ theme }) => theme.activeBackground};
+        border-top: ${({ theme }) => theme.activeBorderTop};
         pointer-events: none;
-        border-top: ${(props) => props.theme.activeBorderTop}
       }
     }
   }
 `;
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const currentTab = useSelector((state) => state.ui.tab);
+  const location = useLocation();
+  const currentTab = location.pathname === `/${NMS}` ? NMS : SMS;
 
   const handleClickTab = (e) => {
     const clicked = e.currentTarget.getAttribute("data-value");
     if (currentTab === clicked) return;
-    dispatch(clickTab(clicked));
+  };
+
+  const ClockStyle = {
+    fontSize: "17pt",
   };
 
   return (
     <>
-      <GlobalStyle theme={theme.color.header[currentTab]} />
+      <GlobalStyle theme={theme.common.header[currentTab]} tab={currentTab} />
       <header className="header">
         <ul className="tab">
           <li className="tab__item" data-value={SMS} onClick={handleClickTab}>
@@ -75,6 +91,10 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
+        <div className="header__logo" />
+        <div className="header__clock">
+          <Clock style={ClockStyle} />
+        </div>
       </header>
     </>
   );
