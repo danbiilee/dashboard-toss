@@ -32,7 +32,6 @@ const statusColor = (props) => {
   }
 };
 const NmsBox = ({ data, style, children }) => {
-  console.log(typeof children);
   return (
     <DIV style={style}>
       <H2 style={style} status={data.STATUS}>
@@ -46,6 +45,6 @@ const NmsBox = ({ data, style, children }) => {
 NmsBox.propTypes = {
   data: PropTypes.object,
   style: PropTypes.object,
-  children: PropTypes.array,
+  children: PropTypes.any,
 };
 export default NmsBox;
