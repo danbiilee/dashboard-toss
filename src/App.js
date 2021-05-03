@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./components/header/index";
@@ -13,12 +12,11 @@ const S = {
   `,
 };
 const App = () => {
-  const dispatch = useDispatch();
   useEffect(() => {
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [dispatch]);
+  }, []);
   return (
     <>
       <div className="container">
