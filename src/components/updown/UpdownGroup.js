@@ -1,13 +1,22 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import StatusCircle from "../statusCircle";
 import Updown from ".";
 
 const Wrapper = styled.section`
-  width: ${(props) => (props.display === "column" ? "100%" : "208px")};
-  padding: 17px 0 0 ${(props) => (props.display === "column" ? "15px" : "12px")};
-  margin-bottom: 7px;
+  flex: 1;
+  ${(props) =>
+    props.display === "column"
+      ? css`
+          margin: 17px 17px 24px 17px;
+        `
+      : css`
+          margin: 17px 17px 0 0;
+          &:first-of-type {
+            margin-left: 17px;
+          }
+        `}
   .title {
     ${(props) => props.theme.common.flexAlignCenter}
     margin-bottom: 7px;
@@ -21,9 +30,9 @@ const Wrapper = styled.section`
   }
 `;
 
-const UpdownGroup = ({ data, display }) => {
+const UpdownGroup = ({ data, display, style }) => {
   return (
-    <Wrapper display={display}>
+    <Wrapper display={display} style={style}>
       <div className="title">
         <StatusCircle data={data} size="sm" />
         <p>{data.name}</p>
@@ -36,6 +45,7 @@ const UpdownGroup = ({ data, display }) => {
 UpdownGroup.propTypes = {
   data: PropTypes.object,
   display: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default UpdownGroup;

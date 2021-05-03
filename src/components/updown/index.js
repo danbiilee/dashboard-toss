@@ -5,9 +5,11 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   .box {
+    flex: 1 1 50%;
     display: flex;
-    width: 7.5em;
-    margin-right: 3px;
+    &:not(:last-of-type) {
+      margin-right: 3px;
+    }
     & > div {
       width: 50%;
       height: 30px;
