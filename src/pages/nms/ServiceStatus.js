@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import Title from "../../components/title/index";
 import NmsBox from "../../components/boxes/NmsBox";
-import styled from "styled-components";
+import UpdownGroup from "../../components/updown/UpdownGroup";
 
 const DIV1 = styled.div`
   display: inline-block;
@@ -46,6 +47,25 @@ const ServiceStatus = ({ style }) => {
       width: "187px",
     },
   };
+
+  // test data
+  const columnDataArr = [
+    {
+      id: 1,
+      status: 0,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 15,
+    },
+    {
+      id: 2,
+      status: 3,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 0,
+    },
+  ];
+
   return (
     <section className="p-abs" style={style}>
       <Title style={LeftTitleStyle} text={"L7 서비스"} />
@@ -53,14 +73,22 @@ const ServiceStatus = ({ style }) => {
       <DIV1>
         {NONHYEON.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.leftStyle} />
+            <NmsBox key={String(index)} data={data} style={BOX.leftStyle}>
+              {columnDataArr.map((data) => (
+                <UpdownGroup key={data.id} data={data} display="column" />
+              ))}
+            </NmsBox>
           );
         })}
       </DIV1>
       <DIV2>
         {KIMPO.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.rightStyle} />
+            <NmsBox key={String(index)} data={data} style={BOX.rightStyle}>
+              {columnDataArr.map((data) => (
+                <UpdownGroup key={data.id} data={data} display="column" />
+              ))}
+            </NmsBox>
           );
         })}
       </DIV2>

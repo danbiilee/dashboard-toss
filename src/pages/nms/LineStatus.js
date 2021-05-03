@@ -1,8 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import Title from "../../components/title/index";
 import NmsBox from "../../components/boxes/NmsBox";
-import styled from "styled-components";
+import UpdownGroup from "../../components/updown/UpdownGroup";
+
+const FlexWrapper = styled.div`
+  display: flex;
+`;
 
 const LEFT1 = styled.div`
   display: inline-block;
@@ -63,6 +68,55 @@ const LineStatus = ({ style }) => {
       width: "983px",
     },
   };
+
+  // test data
+  const columnDataArr = [
+    {
+      id: 1,
+      status: 0,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 15,
+    },
+    {
+      id: 2,
+      status: 3,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 0,
+    },
+  ];
+  const rowDataArr = [
+    {
+      id: 1,
+      status: 0,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 15,
+    },
+    {
+      id: 2,
+      status: 3,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 0,
+    },
+    {
+      id: 3,
+      status: 1,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 15,
+    },
+    {
+      id: 4,
+      status: 3,
+      name: "장비명01 (CISCO백본)",
+      up_cnt: 1,
+      down_cnt: 0,
+    },
+  ];
+
   return (
     <section className="p-abs" style={style}>
       <Title style={LeftTitleStyle} text={"회선상태"} />
@@ -70,28 +124,48 @@ const LineStatus = ({ style }) => {
       <LEFT1>
         {FIRSTCANTERNAME.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.left1Style} />
+            <NmsBox key={String(index)} data={data} style={BOX.left1Style}>
+              {columnDataArr.map((data) => (
+                <UpdownGroup key={data.id} data={data} display="column" />
+              ))}
+            </NmsBox>
           );
         })}
       </LEFT1>
       <RIGHT1>
         {FIRSTCANTERNAME.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.right1Style} />
+            <NmsBox key={String(index)} data={data} style={BOX.right1Style}>
+              {columnDataArr.map((data) => (
+                <UpdownGroup key={data.id} data={data} display="column" />
+              ))}
+            </NmsBox>
           );
         })}
       </RIGHT1>
       <LEFT2>
         {SECONDCANTERNAME.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.left2Style} />
+            <NmsBox key={String(index)} data={data} style={BOX.left2Style}>
+              <FlexWrapper style={BOX.left2Style}>
+                {rowDataArr.map((data) => (
+                  <UpdownGroup key={data.id} data={data} display="row" />
+                ))}
+              </FlexWrapper>
+            </NmsBox>
           );
         })}
       </LEFT2>
       <RIGHT2>
         {SECONDCANTERNAME.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.right2Style} />
+            <NmsBox key={String(index)} data={data} style={BOX.right2Style}>
+              <FlexWrapper style={BOX.right2Style}>
+                {rowDataArr.map((data) => (
+                  <UpdownGroup key={data.id} data={data} display="row" />
+                ))}
+              </FlexWrapper>
+            </NmsBox>
           );
         })}
       </RIGHT2>
