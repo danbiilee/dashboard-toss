@@ -14,14 +14,30 @@ const H2 = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
-  background-color: #1f2127;
+  background-color: ${(props) => statusColor(props.status)};
+  // background-color: #1f2127;
   color: white;
 `;
+const statusColor = (props) => {
+  switch (props) {
+    case 0: {
+      return "#d43f3a";
+    }
+    case 1: {
+      return "#ff8417";
+    }
+    default: {
+      return "#1f2127";
+    }
+  }
+};
 const NmsBox = ({ data, style, children }) => {
   console.log(typeof children);
   return (
     <DIV style={style}>
-      <H2 style={style}>{data.NAME}</H2>
+      <H2 style={style} status={data.STATUS}>
+        {data.NAME}
+      </H2>
       {children}
     </DIV>
   );
@@ -30,6 +46,6 @@ const NmsBox = ({ data, style, children }) => {
 NmsBox.propTypes = {
   data: PropTypes.object,
   style: PropTypes.object,
-  children: PropTypes.object,
+  children: PropTypes.array,
 };
 export default NmsBox;
