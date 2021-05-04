@@ -44,10 +44,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Servers = ({ index, centerName, servers, isDevelop }) => {
-  // Set custom style by center, index
+const Servers = ({ type, list, isDevelop, index }) => {
   const style = {};
+
   if (isDevelop) {
+    const { centerName } = GLOBAL_CONFIG[type];
     style.width = "212px";
     style.height = centerName === "본사" ? "223px" : "519px";
     style.marginTop = "10px";
@@ -59,13 +60,13 @@ const Servers = ({ index, centerName, servers, isDevelop }) => {
     style.height = index === 2 ? "246px" : "184px";
   }
 
+  console.log(list);
+
   return (
     <Wrapper style={style}>
       <div className="center">
         <div className={isDevelop ? "noWrap" : "wrap"}>
-          {servers.map((server) => (
-            <Server key={server.id} server={server} />
-          ))}
+          {list && list.map((item) => <Server key={item.ID} server={item} />)}
         </div>
       </div>
     </Wrapper>
@@ -73,10 +74,10 @@ const Servers = ({ index, centerName, servers, isDevelop }) => {
 };
 
 Servers.propTypes = {
-  index: PropTypes.number,
-  centerName: PropTypes.string,
-  servers: PropTypes.array,
+  type: PropTypes.string,
+  list: PropTypes.array,
   isDevelop: PropTypes.bool,
+  index: PropTypes.number,
 };
 
 export default Servers;
