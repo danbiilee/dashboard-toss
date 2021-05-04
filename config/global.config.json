@@ -6,36 +6,53 @@
     "local": "http://localhost:3000/api"
   },
   "left": {
-    "canterName": "논현센터",
+    "centerName": "논현센터",
     "groups": [
-      { "groupName":"DMZ","resourceId": 7064936 },
-      { "groupName":"콜센터","resourceId": 17064872 },
-      { "groupName":"채널계","resourceId": 17426018 },
-      { "groupName":"계정계","resourceId": 917596 },
-      { "groupName":"보안","resourceId": 917604 }
+      { "groupName": "DMZ", "resourceId": 17064936 },
+      { "groupName": "콜센터", "resourceId": 17064872 },
+      { "groupName": "채널계", "resourceId": 17426018 },
+      { "groupName": "계정계", "resourceId": 917596 },
+      { "groupName": "보안", "resourceId": 917604 }
     ]
   },
   "right": {
-    "canterName": "김포센터",
+    "centerName": "김포센터",
     "groups": [
-      { "groupName":"DMZ","resourceId": 917596 },
-      { "groupName":"콜센터","resourceId": 17426018 },
-      { "groupName":"채널계","resourceId": 917604 },
-      { "groupName":"계정계","resourceId": 7064936 },
-      { "groupName":"보안","resourceId": 17064872 }
+      { "groupName": "DMZ", "resourceId": 917596 },
+      { "groupName": "콜센터", "resourceId": 17426018 },
+      { "groupName": "채널계", "resourceId": 917604 },
+      { "groupName": "계정계", "resourceId": 17064936 },
+      { "groupName": "보안", "resourceId": 17064872 }
     ]
   },
   "sidetop": {
-    "canterName": "개발/테스트",
-    "groups": [
-      { "groupName":"","resourceId": 7064936 }
-    ]
+    "centerName": "개발/테스트",
+    "groups": [{ "groupName": "", "resourceId": 17064936 }]
   },
   "sidebottom": {
-    "canterName": "본사",
-    "groups": [
-      { "groupName":"","resourceId": 7064936 }
-
-    ]
+    "centerName": "본사",
+    "groups": [{ "groupName": "", "resourceId": 17064936 }]
+  },
+  "statusBarMap": {
+    "CRITICAL": {
+      "order": 0,
+      "isActive": true
+    },
+    "TROUBLE": {
+      "order": 1,
+      "isActive": true
+    },
+    "ATTENTION": {
+      "order": 2,
+      "isActive": false
+    },
+    "NORMAL": {
+      "order": 3,
+      "isActive": false
+    },
+    "MAINTENANCE": {
+      "order": 4,
+      "isActive": true
+    }
   }
 }

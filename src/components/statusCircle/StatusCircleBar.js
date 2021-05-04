@@ -27,6 +27,7 @@ const Wrapper = styled.div`
 const StatusCircleBar = ({ type, id, style }) => {
   const { path } = useRouteMatch();
   const page = path.includes("nms") ? "nms" : "sms";
+  const { statusBarMap } = GLOBAL_CONFIG;
 
   const filterStatus = (key) => {
     if (key === "GROUP_NAME" || key === "SERVER_LIST" || key === "GROUP_ID") {
@@ -37,14 +38,16 @@ const StatusCircleBar = ({ type, id, style }) => {
 
   const getDataList = (data, keys) => {
     const list = [];
-    keys.map((key, index) => {
+    keys.map((key) => {
       list.push({
-        id: index,
+        id: statusBarMap[key].order,
         status: key,
         value: data[key],
+        isActive: statusBarMap[key].isActive,
+        //isActive: data[key] ? true : false, // 데이터가 있을 때만 보여주기
       });
     });
-    return list;
+    return list.sort((a, b) => a.id - b.id);
   };
 
   const dataObj = useSelector((state) =>
@@ -55,12 +58,15 @@ const StatusCircleBar = ({ type, id, style }) => {
 
   return (
     <Wrapper style={style} page={page}>
-      {list.map((item) => (
-        <div className="status-container" key={item.id}>
-          <StatusCircle data={item} size="lg" />
-          <span className="status-value">{item.value}</span>
-        </div>
-      ))}
+      {list.map(
+        (item) =>
+          item.isActive && (
+            <div className="status-container" key={item.id}>
+              <StatusCircle data={item} size="lg" />
+              <span className="status-value">{item.value}</span>
+            </div>
+          )
+      )}
     </Wrapper>
   );
 };
