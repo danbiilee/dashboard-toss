@@ -1,16 +1,16 @@
 const color = {
   statusColor: (status) => {
     switch (status) {
-      case "NORMAL":
-        return "#99c165"; // green
-      case "ATTENTION":
-        return "#8c9497"; // gray
-      case "TROUBLE":
-        return "#ff8417"; // orange
       case "CRITICAL":
         return "#d43f3a"; // red
+      case "TROUBLE":
+        return "#ff8417"; // orange
+      case "ATTENTION":
+        return "yellow"; // yellow
+      case "NORMAL":
+        return "#99c165"; // green
       case "MAINTENANCE":
-        return "pink";
+        return "#8c9497"; // gray
       case "NONE":
       default:
         return "black";
