@@ -6,8 +6,8 @@ import LineStatus from "./LineStatus";
 import ServiceStatus from "./ServiceStatus";
 
 const S = {
-  BackgroundImage: styled.div`
-    background-image: url("../assets/images/nms.png");
+  Background: styled.div`
+    background-color: #0a0b0d;
   `,
 };
 const NMSPage = () => {
@@ -37,7 +37,7 @@ const NMSPage = () => {
   };
   return (
     <>
-      <S.BackgroundImage className="bg" />
+      <S.Background className="bg" />
       <TopContainer style={topLayout} />
       <EquipmentStatus style={firstLayout} />
       <LineStatus style={secondLayout} />

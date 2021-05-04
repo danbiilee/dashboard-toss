@@ -21,19 +21,19 @@ const H2 = styled.h2`
         `}
 `;
 
-const CenterName = ({ data, style }) => {
+const CenterName = ({ centerName, style }) => {
   const { path } = useRouteMatch();
   const page = path.includes("nms") ? "nms" : "sms";
 
   return (
     <H2 style={style} page={page}>
-      {data.centerName}
+      {centerName}
     </H2>
   );
 };
 
 CenterName.propTypes = {
-  data: PropTypes.object,
+  centerName: PropTypes.string,
   style: PropTypes.object,
 };
 

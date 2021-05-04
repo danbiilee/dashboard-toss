@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable prefer-destructuring */
 
@@ -6,9 +8,78 @@
     Util.unit1k(10000000) -> 1,000,000
 */
 
-// 천단위 콤마 찍기
-export function unit1k(v) {
-  let txtNumber = String(v);
+export function checkInput(value) {
+  // 값을 입력하지 않은 경우
+  if( value == null || value == "" ){
+    return false;
+  }
+  // 공백만 입력된 경우
+  const blank_pattern = /^\s+|\s+$/g;
+  if( value.replace( blank_pattern, "" ) == "" ){
+    return false;
+  }
+  // 특수문자가 포함된 경우
+  const special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+  if( special_pattern.test(value) == true ){
+    return false;
+  }
+  return true;
+}
+
+/* 소수점 자르기
+-------------------------------------------------------------------------------------- */
+export function decimal(number, digit) {
+  // number:값, digit:소수점 자리수
+  let value = Number(number);
+  try {
+    if (digit > 0) {
+      const powNumber = Math.pow(10, digit);
+      value = Math.round(value * powNumber) / powNumber;
+    }
+  } catch (e){ console.log(e); }
+  return value;
+}
+
+/* 비례식
+-------------------------------------------------------------------------------------- */
+export function proportion(a1=0, b1=0, a2=0) {
+  // a1 : b1 = a2 : x (x를 리턴)
+  return Number(b1) * Number(a2) / Number(a1);
+}
+
+/* 랜덤 정수 ( n1 부터 n2 사이의 값 리턴 )
+-------------------------------------------------------------------------------------- */
+export function randomInt(n1, n2) {
+  return parseInt(Math.random() * (n2 - n1)) + n1;
+}
+
+/* Object Key 정렬
+-------------------------------------------------------------------------------------- */
+export function sortOn($array, $key, $order="asc") {
+  const array = array.slice(0);
+  const key = $key;
+  const order = $order;
+  array.sort((a, b)=>{
+    var p1 = a[key];
+    var p2 = b[key];
+    if ( order == "desc") {
+      if ( p1 < p2 ) return 1;
+      if ( p1 > p2 ) return -1;
+    }
+    else {
+      if ( p1 > p2 ) return 1;
+      if ( p1 < p2 ) return -1;
+    }
+    return 0;
+  });
+  return array;
+};
+
+/* 천단위 콤마 찍기
+-------------------------------------------------------------------------------------- */
+export function unit1k(number) {
+  // number:값
+  let txtNumber = String(number);
   if (isNaN(txtNumber) || txtNumber === "") {
     // 숫자 형태의 값이 정상적으로 입력되었는지 확인
     txtNumber = "0";

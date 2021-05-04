@@ -14,12 +14,20 @@
         "window": true,
         "IMAGE_PATH": "readonly",
         "GLOBAL_CONFIG": "readonly",
-        "API_URL": "writable"
+        "SMS": "readonly",
+        "NMS": "readonly",
+        "API_URL": "writable",
+        "API_ID": "writable"
     },
     "parser": "babel-eslint",
     "ignorePatterns": ["node_modules", "dist", "public/index.html"],
     "rules": {
         "prettier/prettier": "error",
         "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
