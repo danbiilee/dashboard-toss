@@ -7,7 +7,7 @@ const Wrapper = styled.span`
   width: ${(props) => (props.size === "lg" ? 14 : 12)}px;
   height: ${(props) => (props.size === "lg" ? 14 : 12)}px;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.color.statusColor[props.status]};
+  background-color: ${(props) => props.theme.color.statusColor(props.status)};
 `;
 
 const StatusCircle = ({ data: { status }, size }) => (
