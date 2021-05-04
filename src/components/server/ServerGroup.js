@@ -7,6 +7,7 @@ import StatusCircleBar from "../statusCircle/StatusCircleBar";
 const Wrapper = styled.div`
   padding: 60px 0 0 7px;
   .inner {
+    width: ${(props) => (props.isDevelop ? "214px" : "100%")};
     padding-top: 18px;
   }
   .title {
@@ -37,7 +38,7 @@ const ServerGroup = ({ type, list }) => {
         list.map((item, index) => (
           <div className="inner" key={item.GROUP_ID}>
             <div className="title">
-              {item.GROUP_NAME && (
+              {!isDevelop && (
                 <h3>
                   {
                     groups.find((group) => group.resourceId === item.GROUP_ID)

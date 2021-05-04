@@ -60,8 +60,6 @@ const Servers = ({ type, list, isDevelop, index }) => {
     style.height = index === 2 ? "246px" : "184px";
   }
 
-  console.log(list);
-
   return (
     <Wrapper style={style}>
       <div className="center">
