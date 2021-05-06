@@ -13,7 +13,7 @@ const NonhyeonContainer = ({ style }) => {
     position: "absolute",
   };
   const type = "left";
-  const { centerName } = GLOBAL_CONFIG[type];
+  const { centerName } = SMS_CONFIG[type];
   const { list } = useSelector((state) => state.sms[type]);
 
   return (

@@ -13,7 +13,7 @@ const KimpoContainer = ({ style }) => {
     position: "absolute",
   };
   const type = "right";
-  const { centerName } = GLOBAL_CONFIG[type];
+  const { centerName } = SMS_CONFIG[type];
   const { list } = useSelector((state) => state.sms[type]);
 
   return (

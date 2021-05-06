@@ -18,13 +18,13 @@ const developContainer = ({ style }) => {
   const data = [
     {
       type: "sidetop",
-      centerName: GLOBAL_CONFIG.sidetop.centerName,
+      centerName: SMS_CONFIG.sidetop.centerName,
       list: sidetopList,
       style: { ...centerStyle, top: "11px" },
     },
     {
       type: "sidebottom",
-      centerName: GLOBAL_CONFIG.sidebottom.centerName,
+      centerName: SMS_CONFIG.sidebottom.centerName,
       list: sidebottomList,
       style: { ...centerStyle, top: "676px" },
     },

@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 const ServerGroup = ({ type, list }) => {
-  const { groups } = GLOBAL_CONFIG[type];
+  const { groups } = SMS_CONFIG[type];
   const isDevelop = type.includes("side"); // 개발/테스트, 본사 영역 여부
 
   return (
@@ -46,7 +46,7 @@ const ServerGroup = ({ type, list }) => {
                   }
                 </h3>
               )}
-              <StatusCircleBar type={type} id={item.GROUP_ID} />
+              <StatusCircleBar data={item} />
             </div>
             <Servers
               type={type}
