@@ -9,10 +9,17 @@ const AbsWrapper = styled.div`
 `;
 
 const TopContainer = ({ style }) => {
-  const { NMS_CENTERNAME } = window.GLOBAL_CONFIG;
+  const { NMS_CENTERNAME } = GLOBAL_CONFIG;
   const Data = [
     {
       centerName: NMS_CENTERNAME[0].centerName,
+      status: {
+        ATTENTION: 0,
+        CRITICAL: 0,
+        MAINTENANCE: 0,
+        NORMAL: 0,
+        TROUBLE: 0,
+      },
       style: {
         width: "841px",
         height: "50px",
@@ -21,6 +28,13 @@ const TopContainer = ({ style }) => {
     },
     {
       centerName: NMS_CENTERNAME[1].centerName,
+      status: {
+        ATTENTION: 0,
+        CRITICAL: 0,
+        MAINTENANCE: 0,
+        NORMAL: 0,
+        TROUBLE: 0,
+      },
       style: {
         width: "982px",
         height: "50px",
@@ -28,25 +42,18 @@ const TopContainer = ({ style }) => {
       },
     },
   ];
-  const statusData = {
-    data: [
-      { id: 1, status: 0, value: 39 },
-      { id: 2, status: 1, value: 142 },
-      { id: 3, status: 2, value: 5 },
-    ],
-    style: {
-      position: "absolute",
-      top: "28px",
-      right: "24px",
-    },
+  const statusStyle = {
+    position: "absolute",
+    top: "28px",
+    right: "24px",
   };
 
   return (
     <section className="p-abs" style={style}>
-      {Data.map((data, index) => (
+      {Data.map((item, index) => (
         <AbsWrapper key={index}>
-          <CenterName data={data} style={data.style} />
-          <StatusCircleBar datas={statusData.data} style={statusData.style} />
+          <CenterName centerName={item.centerName} style={item.style} />
+          <StatusCircleBar data={item.status} style={statusStyle} />
         </AbsWrapper>
       ))}
     </section>

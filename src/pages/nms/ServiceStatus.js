@@ -52,14 +52,14 @@ const ServiceStatus = ({ style }) => {
   const columnDataArr = [
     {
       id: 1,
-      status: 0,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 15,
     },
     {
       id: 2,
-      status: 3,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 0,

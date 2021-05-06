@@ -74,8 +74,8 @@ const MAJOR = {
 };
 
 const EquipmentStatus = ({ style }) => {
-  const NonhyeonEquipment = window.NMS_NONHYEON_CONFIG.nonhyeon.equipment;
-  const kimpoEquipment = window.NMS_KIMPO_CONFIG.kimpo.equipment;
+  const NonhyeonEquipment = NMS_NONHYEON_CONFIG.nonhyeon.equipment;
+  const kimpoEquipment = NMS_KIMPO_CONFIG.kimpo.equipment;
   const LeftTitleStyle = {
     left: "13px",
     top: "12px",
@@ -112,8 +112,8 @@ const EquipmentStatus = ({ style }) => {
               <CRITICAL.STATUS>
                 <CRITICAL.CIRCLE>
                   <StatusCircle
-                    data={{ status: 0 }}
-                    size={"nms"}
+                    data={{ status: "CRITICAL" }}
+                    size="sm"
                   ></StatusCircle>
                 </CRITICAL.CIRCLE>
                 <CRITICAL.STATUSCNT>1</CRITICAL.STATUSCNT>
@@ -121,8 +121,8 @@ const EquipmentStatus = ({ style }) => {
               <MAJOR.STATUS>
                 <MAJOR.CIRCLE>
                   <StatusCircle
-                    data={{ status: 1 }}
-                    size={"nms"}
+                    data={{ status: "TROUBLE" }}
+                    size="sm"
                   ></StatusCircle>
                 </MAJOR.CIRCLE>
                 <MAJOR.STATUSCNT>15</MAJOR.STATUSCNT>
@@ -139,8 +139,8 @@ const EquipmentStatus = ({ style }) => {
               <CRITICAL.STATUS>
                 <CRITICAL.CIRCLE>
                   <StatusCircle
-                    data={{ status: 0 }}
-                    size={"nms"}
+                    data={{ status: "CRITICAL" }}
+                    size="sm"
                   ></StatusCircle>
                 </CRITICAL.CIRCLE>
                 <CRITICAL.STATUSCNT>1</CRITICAL.STATUSCNT>
@@ -148,8 +148,8 @@ const EquipmentStatus = ({ style }) => {
               <MAJOR.STATUS>
                 <MAJOR.CIRCLE>
                   <StatusCircle
-                    data={{ status: 1 }}
-                    size={"nms"}
+                    data={{ status: "TROUBLE" }}
+                    size="sm"
                   ></StatusCircle>
                 </MAJOR.CIRCLE>
                 <MAJOR.STATUSCNT>15</MAJOR.STATUSCNT>

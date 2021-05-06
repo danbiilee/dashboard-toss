@@ -31,7 +31,7 @@ const Value = styled.div`
   border-left: 0;
   background-color: #101116;
   color: ${(props) =>
-    props.isOver ? props.theme.color.statusColor[props.status] : "#66e7ff"};
+    props.isOver ? props.theme.color.statusColor(props.status) : "#66e7ff"};
   font-size: 15px;
 `;
 

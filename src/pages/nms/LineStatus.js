@@ -73,14 +73,14 @@ const LineStatus = ({ style }) => {
   const columnDataArr = [
     {
       id: 1,
-      status: 0,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 15,
     },
     {
       id: 2,
-      status: 3,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 0,
@@ -89,28 +89,28 @@ const LineStatus = ({ style }) => {
   const rowDataArr = [
     {
       id: 1,
-      status: 0,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 15,
     },
     {
       id: 2,
-      status: 3,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 0,
     },
     {
       id: 3,
-      status: 1,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 15,
     },
     {
       id: 4,
-      status: 3,
+      status: "NORMAL",
       name: "장비명01 (CISCO백본)",
       up_cnt: 1,
       down_cnt: 0,
