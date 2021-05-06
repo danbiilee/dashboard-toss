@@ -1,7 +1,7 @@
 {
   "left": { "id":1, "centerName":"논현센터","resourceId": 2289625 },
   "equipment": [
-    { "id": 1, "centerName": "보안구강", "resourceId": 2289625 },
+    { "id": 1, "centerName": "보안구간", "resourceId": 2289625 },
     { "id": 2, "centerName": "채널계", "resourceId": 16284 },
     { "id": 3, "centerName": "대외계", "resourceId": 2289633 },
     { "id": 4, "centerName": "서비스망", "resourceId": 2289639 },
