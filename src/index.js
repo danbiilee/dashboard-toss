@@ -8,22 +8,22 @@ import store from "./redux";
 import "./scss/main.scss";
 import App from "./App";
 
-window.API_ID = {
+const initialApiId = {
   left: "",
   right: "",
   sidetop: "",
   sidebottom: "",
 };
 
-const formatConfig = (config) => {
-  const left = config.left.groups.map((elem) => elem.resourceId);
-  const right = config.right.groups.map((elem) => elem.resourceId);
-  const sidetop = config.sidetop.groups.map((elem) => elem.resourceId);
-  const sidebottom = config.sidebottom.groups.map((elem) => elem.resourceId);
-  window.API_ID.left = left.join(",");
-  window.API_ID.right = right.join(",");
-  window.API_ID.sidetop = sidetop.join(",");
-  window.API_ID.sidebottom = sidebottom.join(",");
+window.API_ID = initialApiId;
+
+const setApiId = (config) => {
+  const keys = Object.keys(initialApiId);
+
+  keys.forEach((key) => {
+    const ids = config[key].groups.map((elem) => elem.resourceId);
+    API_ID[key] = ids.join(",");
+  });
 };
 
 (async () => {
@@ -42,7 +42,7 @@ const formatConfig = (config) => {
   if (window.GLOBAL_CONFIG.isLocal)
     window.API_URL = window.GLOBAL_CONFIG.API_URL.local;
 
-  formatConfig(window.GLOBAL_CONFIG);
+  setApiId(GLOBAL_CONFIG);
 
   render(
     <HashRouter>

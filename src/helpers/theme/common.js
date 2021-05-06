@@ -11,9 +11,9 @@ const common = {
     align-items: center;
   `,
   ellipsis: `
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+      white-space: nowrap;
   `,
   header: {
     sms: {

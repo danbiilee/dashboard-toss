@@ -1,9 +1,20 @@
 const color = {
-  statusColor: {
-    0: "#a52521", // red
-    1: "#ce6111", // orange
-    2: "#8c9497", // gray
-    3: "#99c165", // green
+  statusColor: (status) => {
+    switch (status) {
+      case "CRITICAL":
+        return "#d43f3a"; // red
+      case "TROUBLE":
+        return "#ff8417"; // orange
+      case "ATTENTION":
+        return "yellow"; // yellow
+      case "NORMAL":
+        return "#99c165"; // green
+      case "MAINTENANCE":
+        return "#8c9497"; // gray
+      case "NONE":
+      default:
+        return "black";
+    }
   },
   green: "#79ab3d",
   white: "#fff",
