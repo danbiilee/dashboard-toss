@@ -9,20 +9,23 @@ import "./scss/main.scss";
 import App from "./App";
 
 const initialApiId = {
-  left: "",
-  right: "",
-  sidetop: "",
-  sidebottom: "",
+  sms: {
+    left: "",
+    right: "",
+    sidetop: "",
+    sidebottom: "",
+  },
+  nms: {},
 };
 
 window.API_ID = initialApiId;
 
-const setApiId = (config) => {
-  const keys = Object.keys(initialApiId);
+const setApiId = (type, config) => {
+  const keys = Object.keys(initialApiId[type]);
 
   keys.forEach((key) => {
     const ids = config[key].groups.map((elem) => elem.resourceId);
-    API_ID[key] = ids.join(",");
+    API_ID[type][key] = ids.join(",");
   });
 };
 
@@ -42,7 +45,7 @@ const setApiId = (config) => {
   if (window.GLOBAL_CONFIG.isLocal)
     window.API_URL = window.GLOBAL_CONFIG.API_URL.local;
 
-  setApiId(GLOBAL_CONFIG);
+  setApiId(SMS, SMS_CONFIG);
 
   render(
     <HashRouter>

@@ -19,8 +19,8 @@ const initialStateOfSlice = {
 export const fetchSMS = createAsyncThunk(
   `${SLICE_NAME}/fetchSMS`,
   async (param) => {
-    const apiId = API_ID[param];
-    const url = `${API_URL}/sms/${apiId}`;
+    const apiId = API_ID[SMS][param];
+    const url = `${API_URL}/${SMS}/${apiId}`;
     const response = await callAPI(url);
     return response;
   }
