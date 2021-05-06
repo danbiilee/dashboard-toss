@@ -48,11 +48,10 @@ const Servers = ({ type, list, isDevelop, index }) => {
   const style = {};
 
   if (isDevelop) {
-    const { centerName } = GLOBAL_CONFIG[type];
     style.width = "212px";
-    style.height = centerName === "본사" ? "223px" : "519px";
+    style.height = type === "sidetop" ? "519px" : "223px";
     style.marginTop = "10px";
-    style.marginBottom = centerName !== "본사" && "35px";
+    style.marginBottom = type === "sidetop" && "35px";
   }
 
   // 그룹 목록이 있는 경우(논현/김포센터) 위에서 3, 4번째 그룹의 높이값 설정
