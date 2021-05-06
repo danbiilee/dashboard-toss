@@ -1,7 +1,7 @@
 const color = {
   statusColor: {
-    0: "#d43f3a", // red
-    1: "#ff8417", // orange
+    0: "#a52521", // red
+    1: "#ce6111", // orange
     2: "#8c9497", // gray
     3: "#99c165", // green
   },

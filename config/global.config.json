@@ -5,6 +5,10 @@
     "production": "",
     "local": "http://localhost:3000/api"
   },
+  "NMS_CENTERNAME": [
+    { "centerName": "논현센터" },
+    { "centerName": "김포센터" }
+  ],
   "left": {
     "canterName": "논현센터",
     "groups": [

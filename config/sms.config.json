@@ -1,0 +1,26 @@
+{
+  "left":
+      { "centerName": "논현센터", "groups": [
+          { "id":1, "groupName":"DMZ","resourceId": 2289625 },
+          { "id":2, "groupName":"콜센터2","resourceId": 16284 },
+          { "id":3, "groupName":"채널계","resourceId": 2289633 },
+          { "id":4, "groupName":"계정계","resourceId": 2289639 },
+          { "id":5, "groupName":"보안","resourceId": 2289646 }
+      ]},
+  "right":
+      { "centerName": "김포센터", "groups": [
+        { "groupName":"DMZ","resourceId": 2289625 },
+        { "groupName":"콜센터","resourceId": 16284 },
+        { "groupName":"채널계","resourceId": 2289633 },
+        { "groupName":"계정계","resourceId": 2289639 },
+        { "groupName":"보안","resourceId": 2289646 }
+      ]},
+  "sidetop":
+    { "centerName": "개발/테스트","groups": [
+        { "groupName":"","resourceId": 2289625 }
+    ]},
+  "sidebottom":
+    { "centerName": "본사", "groups": [
+        { "groupName":"","resourceId": 2289625 }
+    ]}
+}

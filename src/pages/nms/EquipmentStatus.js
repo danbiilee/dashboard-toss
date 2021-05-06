@@ -74,6 +74,8 @@ const MAJOR = {
 };
 
 const EquipmentStatus = ({ style }) => {
+  const NonhyeonEquipment = window.NMS_NONHYEON_CONFIG.nonhyeon.equipment;
+  const kimpoEquipment = window.NMS_KIMPO_CONFIG.kimpo.equipment;
   const LeftTitleStyle = {
     left: "13px",
     top: "12px",
@@ -82,23 +84,17 @@ const EquipmentStatus = ({ style }) => {
     left: "898px",
     top: "12px",
   };
-  const NONHYEON = [
-    { NAME: "보안구간", STATUS: 0 },
-    { NAME: "채널계", STATUS: 1 },
-    { NAME: "대외계", STATUS: 1 },
-    { NAME: "서비스망", STATUS: 1 },
-    { NAME: "관리망", STATUS: 1 },
-    { NAME: "콜센터", STATUS: 0 },
-  ];
-  const KIMPO = [
-    { NAME: "보안구간", STATUS: 1 },
-    { NAME: "채널계", STATUS: 1 },
-    { NAME: "대외계", STATUS: 1 },
-    { NAME: "서비스망", STATUS: 2 },
-    { NAME: "관리망", STATUS: 0 },
-    { NAME: "콜센터", STATUS: 0 },
-    { NAME: "개발망", STATSU: 1 },
-  ];
+  const NONHYEON = [];
+  const KIMPO = [];
+  for (var i = 0; i < NonhyeonEquipment.length; i++) {
+    NONHYEON.push({
+      NAME: `${NonhyeonEquipment[i].centerName}`,
+      STATUS: 1,
+    });
+  }
+  for (var j = 0; j < kimpoEquipment.length; j++) {
+    KIMPO.push({ NAME: `${kimpoEquipment[j].centerName}`, STATUS: 0 });
+  }
   const BOX = {
     style: {
       width: "131px",

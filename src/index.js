@@ -29,7 +29,14 @@ const formatConfig = (config) => {
 (async () => {
   const nodeEnv = process.env.NODE_ENV;
   const globalConfigPro = await fetch("./config/global.config.json");
+  const smsConfigPro = await fetch("./config/sms.config.json");
+  const nmsNonhyeonConfigPro = await fetch("./config/nms.nonhyeon.config.json");
+  const nmsKimpoConfigPro = await fetch("./config/nms.kimpo.config.json");
+
   window.GLOBAL_CONFIG = await globalConfigPro.json();
+  window.SMS_CONFIG = await smsConfigPro.json();
+  window.NMS_NONHYEON_CONFIG = await nmsNonhyeonConfigPro.json();
+  window.NMS_KIMPO_CONFIG = await nmsKimpoConfigPro.json();
 
   window.API_URL = window.GLOBAL_CONFIG.API_URL[nodeEnv];
   if (window.GLOBAL_CONFIG.isLocal)

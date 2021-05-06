@@ -21,10 +21,10 @@ const H2 = styled.h2`
 const statusColor = (props) => {
   switch (props) {
     case 0: {
-      return "#d43f3a";
+      return "#a52521";
     }
     case 1: {
-      return "#ff8417";
+      return "#ce6111";
     }
     default: {
       return "#1f2127";
