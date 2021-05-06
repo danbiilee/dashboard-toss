@@ -9,9 +9,10 @@ const AbsWrapper = styled.div`
 `;
 
 const TopContainer = ({ style }) => {
+  const { NMS_CENTERNAME } = window.GLOBAL_CONFIG;
   const Data = [
     {
-      centerName: "논현센터",
+      centerName: NMS_CENTERNAME[0].centerName,
       style: {
         width: "841px",
         height: "50px",
@@ -19,7 +20,7 @@ const TopContainer = ({ style }) => {
       },
     },
     {
-      centerName: "김포센터",
+      centerName: NMS_CENTERNAME[1].centerName,
       style: {
         width: "982px",
         height: "50px",
