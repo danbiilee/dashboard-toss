@@ -9,10 +9,11 @@ const AbsWrapper = styled.div`
 `;
 
 const TopContainer = ({ style }) => {
-  const { NMS_CENTERNAME } = GLOBAL_CONFIG;
+  const { left } = NMS_NONHYEON_CONFIG;
+  const { right } = NMS_KIMPO_CONFIG;
   const Data = [
     {
-      centerName: NMS_CENTERNAME[0].centerName,
+      centerName: left.centerName,
       status: {
         ATTENTION: 0,
         CRITICAL: 0,
@@ -27,7 +28,7 @@ const TopContainer = ({ style }) => {
       },
     },
     {
-      centerName: NMS_CENTERNAME[1].centerName,
+      centerName: right.centerName,
       status: {
         ATTENTION: 0,
         CRITICAL: 0,

@@ -11,6 +11,8 @@ const S = {
   `,
 };
 const NMSPage = () => {
+  console.log(NMS_NONHYEON_CONFIG);
+  console.log(NMS_KIMPO_CONFIG);
   const topLayout = {
     width: "1898px",
     height: "70px",

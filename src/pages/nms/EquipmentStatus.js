@@ -74,8 +74,8 @@ const MAJOR = {
 };
 
 const EquipmentStatus = ({ style }) => {
-  const NonhyeonEquipment = NMS_NONHYEON_CONFIG.nonhyeon.equipment;
-  const kimpoEquipment = NMS_KIMPO_CONFIG.kimpo.equipment;
+  const NonhyeonEquipment = NMS_NONHYEON_CONFIG.equipment;
+  const kimpoEquipment = NMS_KIMPO_CONFIG.equipment;
   const LeftTitleStyle = {
     left: "13px",
     top: "12px",
