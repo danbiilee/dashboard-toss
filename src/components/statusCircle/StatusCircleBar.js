@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import StatusCircle from "./index";
-import { useSelector } from "react-redux";
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,10 +23,10 @@ const Wrapper = styled.div`
   }
 `;
 
-const StatusCircleBar = ({ type, id, style }) => {
+const StatusCircleBar = ({ data, style }) => {
   const { path } = useRouteMatch();
   const page = path.includes("nms") ? "nms" : "sms";
-  const { statusBarMap } = GLOBAL_CONFIG;
+  const { statusMap } = page === "sms" ? SMS_CONFIG : NMS_NONHYEON_CONFIG;
 
   const filterStatus = (key) => {
     if (key === "GROUP_NAME" || key === "SERVER_LIST" || key === "GROUP_ID") {
@@ -40,21 +39,17 @@ const StatusCircleBar = ({ type, id, style }) => {
     const list = [];
     keys.map((key) => {
       list.push({
-        id: statusBarMap[key].order,
+        id: statusMap[key].order,
         status: key,
         value: data[key],
-        isActive: statusBarMap[key].isActive,
-        //isActive: data[key] ? true : false, // 데이터가 있을 때만 보여주기
+        isActive: statusMap[key].isActive,
       });
     });
     return list.sort((a, b) => a.id - b.id);
   };
 
-  const dataObj = useSelector((state) =>
-    state.sms[type].list.find((item) => item.GROUP_ID === id)
-  );
-  const keys = Object.keys(dataObj).filter((item) => filterStatus(item));
-  const list = getDataList(dataObj, keys);
+  const keys = Object.keys(data).filter((item) => filterStatus(item));
+  const list = getDataList(data, keys);
 
   return (
     <Wrapper style={style} page={page}>
@@ -72,8 +67,7 @@ const StatusCircleBar = ({ type, id, style }) => {
 };
 
 StatusCircleBar.propTypes = {
-  type: PropTypes.string,
-  id: PropTypes.number,
+  data: PropTypes.object,
   style: PropTypes.object,
 };
 
