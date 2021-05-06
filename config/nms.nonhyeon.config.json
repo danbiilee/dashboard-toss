@@ -1,53 +1,106 @@
 {
-  "nonhyeon":
-    {
-      "equipment":[
-        { "id":1, "centerName":"보안구강","resourceId": 2289625 },
-        { "id":2, "centerName":"채널계","resourceId": 16284 },
-        { "id":3, "centerName":"대외계","resourceId": 2289633 },
-        { "id":4, "centerName":"서비스망","resourceId": 2289639 },
-        { "id":5, "centerName":"관리망","resourceId": 2289646 },
-        { "id":6, "centerName":"콜센터","resourceId": 2289646 }
-      ],
-      "line1":[
-        { "id":1, "centerName":"인터넷회선", "groups": [
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명02 (CISCO백본)","resourceId": 16284 }
-        ]},
-        { "id":2, "centerName":"본사전용선","groups": [
-          { "name":"장비명03 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명04 (CISCO백본)","resourceId": 16284 }
-        ]},
-        { "id":3, "centerName":"DWDM","groups": [
-          { "name":"장비명05 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명06 (CISCO백본)","resourceId": 16284 }
-        ]}
-      ],
-      "line2":[
-        { "id":1, "centerName":"대외계", "groups": [
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 16284 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 16284 }
-        ]}
-      ],
-      "service":[
-        { "id":1, "centerName":"채널-DMZ L7", "groups": [
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 16284 }
-        ]},
-        { "id":2, "centerName":"채널-INT L7","groups": [
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 16284 }
-        ]},
-        { "id":3, "centerName":"서비스망-L7","groups": [
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 16284 }
-        ]},
-        { "id":4, "centerName":"콜센터-L7","groups": [
-          { "name":"장비명01 (CISCO백본)","resourceId": 2289625 },
-          { "name":"장비명01 (CISCO백본)","resourceId": 16284 }
-        ]}
-      ]
+  "nonhyeon": {
+    "equipment": [
+      { "id": 1, "centerName": "보안구강", "resourceId": 2289625 },
+      { "id": 2, "centerName": "채널계", "resourceId": 16284 },
+      { "id": 3, "centerName": "대외계", "resourceId": 2289633 },
+      { "id": 4, "centerName": "서비스망", "resourceId": 2289639 },
+      { "id": 5, "centerName": "관리망", "resourceId": 2289646 },
+      { "id": 6, "centerName": "콜센터", "resourceId": 2289646 }
+    ],
+    "line1": [
+      {
+        "id": 1,
+        "centerName": "인터넷회선",
+        "groups": [
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명02 (CISCO백본)", "resourceId": 16284 }
+        ]
+      },
+      {
+        "id": 2,
+        "centerName": "본사전용선",
+        "groups": [
+          { "name": "장비명03 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명04 (CISCO백본)", "resourceId": 16284 }
+        ]
+      },
+      {
+        "id": 3,
+        "centerName": "DWDM",
+        "groups": [
+          { "name": "장비명05 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명06 (CISCO백본)", "resourceId": 16284 }
+        ]
+      }
+    ],
+    "line2": [
+      {
+        "id": 1,
+        "centerName": "대외계",
+        "groups": [
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 16284 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 16284 }
+        ]
+      }
+    ],
+    "service": [
+      {
+        "id": 1,
+        "centerName": "채널-DMZ L7",
+        "groups": [
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 16284 }
+        ]
+      },
+      {
+        "id": 2,
+        "centerName": "채널-INT L7",
+        "groups": [
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 16284 }
+        ]
+      },
+      {
+        "id": 3,
+        "centerName": "서비스망-L7",
+        "groups": [
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 16284 }
+        ]
+      },
+      {
+        "id": 4,
+        "centerName": "콜센터-L7",
+        "groups": [
+          { "name": "장비명01 (CISCO백본)", "resourceId": 2289625 },
+          { "name": "장비명01 (CISCO백본)", "resourceId": 16284 }
+        ]
+      }
+    ]
+  },
+  "statusMap": {
+    "CRITICAL": {
+      "order": 0,
+      "isActive": true
+    },
+    "TROUBLE": {
+      "order": 1,
+      "isActive": true
+    },
+    "ATTENTION": {
+      "order": 2,
+      "isActive": false
+    },
+    "NORMAL": {
+      "order": 3,
+      "isActive": false
+    },
+    "MAINTENANCE": {
+      "order": 4,
+      "isActive": false
     }
+  }
 }
