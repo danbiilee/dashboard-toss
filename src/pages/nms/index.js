@@ -42,19 +42,65 @@ const NMSPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchNMS({ center: "nonhyun", type: "left" }));
-    // dispatch(fetchNMS({ center: "nonhyun", type: "right" }));
-    // dispatch(fetchNMS({ center: "nonhyun", type: "equipment" }));
-    // dispatch(fetchNMS({ center: "nonhyun", type: "line1" }));
-    // dispatch(fetchNMS({ center: "nonhyun", type: "line2" }));
-    // dispatch(fetchNMS({ center: "nonhyun", type: "service" }));
+    // 프리티어의 폐해 ㅈㅅ&ㅅㅂ 누가 탭 설정좀...
+    // 논현
+    dispatch(fetchNMS({ center: "nonhyeon", type: "left", apiname: "status" }));
+    dispatch(
+      fetchNMS({ center: "nonhyeon", type: "equipment", apiname: "status" })
+    );
+    dispatch(
+      fetchNMS({ center: "nonhyeon", type: "line1", apiname: "priority" })
+    );
+    dispatch(
+      fetchNMS({ center: "nonhyeon", type: "line2", apiname: "priority" })
+    );
+    dispatch(
+      fetchNMS({ center: "nonhyeon", type: "service", apiname: "priority" })
+    );
 
-    // dispatch(fetchNMS({ center: "gimpo", type: "left" }));
-    // dispatch(fetchNMS({ center: "gimpo", type: "right" }));
-    // dispatch(fetchNMS({ center: "gimpo", type: "equipment" }));
-    // dispatch(fetchNMS({ center: "gimpo", type: "line1" }));
-    // dispatch(fetchNMS({ center: "gimpo", type: "line2" }));
-    // dispatch(fetchNMS({ center: "gimpo", type: "service" }));
+    // 김포
+    dispatch(fetchNMS({ center: "kimpo", type: "right", apiname: "status" }));
+    dispatch(
+      fetchNMS({ center: "kimpo", type: "equipment", apiname: "status" })
+    );
+    dispatch(fetchNMS({ center: "kimpo", type: "line1", apiname: "priority" }));
+    dispatch(fetchNMS({ center: "kimpo", type: "line2", apiname: "priority" }));
+    dispatch(
+      fetchNMS({ center: "kimpo", type: "service", apiname: "priority" })
+    );
+    const id = setInterval(() => {
+      dispatch(
+        fetchNMS({ center: "nonhyeon", type: "left", apiname: "status" })
+      );
+      dispatch(
+        fetchNMS({ center: "nonhyeon", type: "equipment", apiname: "status" })
+      );
+      dispatch(
+        fetchNMS({ center: "nonhyeon", type: "line1", apiname: "priority" })
+      );
+      dispatch(
+        fetchNMS({ center: "nonhyeon", type: "line2", apiname: "priority" })
+      );
+      dispatch(
+        fetchNMS({ center: "nonhyeon", type: "service", apiname: "priority" })
+      );
+
+      // 김포
+      dispatch(fetchNMS({ center: "kimpo", type: "right", apiname: "status" }));
+      dispatch(
+        fetchNMS({ center: "kimpo", type: "equipment", apiname: "status" })
+      );
+      dispatch(
+        fetchNMS({ center: "kimpo", type: "line1", apiname: "priority" })
+      );
+      dispatch(
+        fetchNMS({ center: "kimpo", type: "line2", apiname: "priority" })
+      );
+      dispatch(
+        fetchNMS({ center: "kimpo", type: "service", apiname: "priority" })
+      );
+    }, GLOBAL_CONFIG.setInterval * 1000);
+    return () => clearInterval(id);
   }, [dispatch]);
 
   return (

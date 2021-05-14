@@ -10,16 +10,14 @@ const inititalStateOfCenter = {
 };
 
 const initialStateOfSlice = {
-  nonhyun: {
+  nonhyeon: {
     left: inititalStateOfCenter,
-    right: inititalStateOfCenter,
     equipment: inititalStateOfCenter,
     line1: inititalStateOfCenter,
     line2: inititalStateOfCenter,
     service: inititalStateOfCenter,
   },
-  gimpo: {
-    left: inititalStateOfCenter,
+  kimpo: {
     right: inititalStateOfCenter,
     equipment: inititalStateOfCenter,
     line1: inititalStateOfCenter,
@@ -28,20 +26,14 @@ const initialStateOfSlice = {
   },
 };
 
-/**
-1. 인터넷 회선
-http://192.168.10.65:9005/dashboard_toss/nms/priority/123,45
-
-1.대외
-http://192.168.10.65:9005/dashboard_toss/nms/priority/
- */
 export const fetchNMS = createAsyncThunk(
   `${SLICE_NAME}/fetchNMS`,
-  async (/*param*/) => {
-    // console.log("param", param);
-    // const apiId = API_ID[param];
-    const apiId = "";
-    const url = `${API_URL}/${NMS}/priority/${apiId}`;
+  async (param) => {
+    const { center, type, apiname } = param;
+    const apiId = API_ID.nms[center][type];
+    let url = `${API_URL}/${NMS}/${apiname}/${apiId}`;
+    if (apiname !== "status")
+      url = `${API_URL}/${NMS}/${apiname}/${apiId}/${type}`;
     const response = await callAPI(url);
     return response;
   }
@@ -52,17 +44,24 @@ export const slice = createSlice({
   initialState: initialStateOfSlice,
   reducers: {},
   extraReducers: {
-    [fetchNMS.pending]: (state) => {
-      state.isLoading = true;
+    [fetchNMS.pending]: (state, action) => {
+      const { center, type } = action.meta.arg;
+
+      state[center][type].isLoading = true;
     },
+
     [fetchNMS.fulfilled]: (state, action) => {
       const { center, type } = action.meta.arg;
+
       state[center][type].isLoading = false;
       state[center][type].list = action.payload.list;
     },
-    [fetchNMS.rejcted]: (state) => {
-      state.isLoading = false;
-      state.isError = true;
+
+    [fetchNMS.rejected]: (state, action) => {
+      const { center, type } = action.meta.arg;
+
+      state[center][type].isLoading = false;
+      state[center][type].isError = true;
     },
   },
 });

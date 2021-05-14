@@ -7,8 +7,8 @@ import Clock from "./Clock";
 const GlobalStyle = createGlobalStyle`
   .header {
     color: #425363;
-    font-size: 18px;
-    height: 56px;
+    font-size: 13pt;
+    height: 57px;
     border-bottom: ${({ theme }) => theme.borderBottom};
     z-index: 999; // 이미지 없애면 삭제 할 것
     background-color: ${({ theme }) => theme.background};
@@ -38,14 +38,16 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &__link {
+      margin-top:6px;
       padding: 17px 33px;
       display: block;
-      background-color: ${({ theme }) => theme.background};
+      // background-color: ${({ theme }) => theme.background};
       color: ${({ theme }) => theme.inactiveColor};
       text-decoration: none;
       text-transform: uppercase;
 
       &.active {
+        margin-top:0px;
         color: ${({ theme }) => theme.activeColor};
         background-color: ${({ theme }) => theme.activeBackground};
         border-top: ${({ theme }) => theme.activeBorderTop};

@@ -1,19 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 import Title from "../../components/title/index";
 import NmsBox from "../../components/boxes/NmsBox";
 import styled, { css } from "styled-components";
 import StatusCircle from "../../components/statusCircle/index";
 
 const DIV1 = styled.div`
-  display: inline-block;
-  padding: 38px 13px 13px 13px;
+  display: inline-flex;
+  padding: 38px 20px 13px 13px;
   width: 885px;
   height: 228px;
 `;
 const DIV2 = styled.div`
-  display: inline-block;
-  padding: 38px 13px 13px 13px;
+  display: inline-flex;
+  padding: 38px 16px 13px 13px;
   width: 1023px;
   height: 228px;
 `;
@@ -23,20 +24,21 @@ const ERRORCNT = styled.div`
   margin-top: 14px;
   height: 49px;
   text-align: center;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #2c2d31;
 `;
 const C = {
   style: {
     status: css`
-      width: 65px;
+      width: 50%;
       height: 60px;
       display: inline-block;
     `,
     circle: css`
-      width: 13px;
+      width: 100%;
+      text-align: center;
+      margin-top: 4px;
       height: 21px;
       display: inline-block;
-      margin: 3px 24px 0px 28px;
     `,
     cnt: css`
       padding-top: 8px;
@@ -74,8 +76,16 @@ const MAJOR = {
 };
 
 const EquipmentStatus = ({ style }) => {
+  const { list: leftStatus } = useSelector(
+    (state) => state.nms.nonhyeon.equipment
+  );
+  const { list: rightStatus } = useSelector(
+    (state) => state.nms.kimpo.equipment
+  );
+
   const NonhyeonEquipment = NMS_NONHYEON_CONFIG.equipment;
   const kimpoEquipment = NMS_KIMPO_CONFIG.equipment;
+
   const LeftTitleStyle = {
     left: "13px",
     top: "12px",
@@ -86,18 +96,26 @@ const EquipmentStatus = ({ style }) => {
   };
   const NONHYEON = [];
   const KIMPO = [];
-  for (var i = 0; i < NonhyeonEquipment.length; i++) {
-    NONHYEON.push({
-      NAME: `${NonhyeonEquipment[i].centerName}`,
-      STATUS: 1,
-    });
-  }
-  for (var j = 0; j < kimpoEquipment.length; j++) {
-    KIMPO.push({ NAME: `${kimpoEquipment[j].centerName}`, STATUS: 0 });
+  if (leftStatus.length > 0 && rightStatus.length > 0) {
+    for (var i = 0; i < NonhyeonEquipment.length; i++) {
+      NONHYEON.push({
+        NAME: `${leftStatus[i].GROUP_NAME}`,
+        STATUS: `${leftStatus[i].STATUS}`,
+      });
+    }
+    for (var j = 0; j < kimpoEquipment.length; j++) {
+      KIMPO.push({
+        NAME: `${rightStatus[j].GROUP_NAME}`,
+        STATUS: `${rightStatus[j].STATUS}`,
+      });
+    }
   }
   const BOX = {
-    style: {
-      width: "131px",
+    leftStyle: {
+      width: `${885 / NMS_NONHYEON_CONFIG.equipment.length}px`,
+    },
+    rightStyle: {
+      width: `${1023 / NMS_KIMPO_CONFIG.equipment.length}px`,
     },
   };
   return (
@@ -107,8 +125,8 @@ const EquipmentStatus = ({ style }) => {
       <DIV1>
         {NONHYEON.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.style}>
-              <ERRORCNT>160</ERRORCNT>
+            <NmsBox key={String(index)} data={data} style={BOX.leftStyle}>
+              <ERRORCNT>{leftStatus[index].EQUIPMENT_COUNT}</ERRORCNT>
               <CRITICAL.STATUS>
                 <CRITICAL.CIRCLE>
                   <StatusCircle
@@ -116,7 +134,9 @@ const EquipmentStatus = ({ style }) => {
                     size="sm"
                   ></StatusCircle>
                 </CRITICAL.CIRCLE>
-                <CRITICAL.STATUSCNT>1</CRITICAL.STATUSCNT>
+                <CRITICAL.STATUSCNT>
+                  {leftStatus[index].CRITICAL}
+                </CRITICAL.STATUSCNT>
               </CRITICAL.STATUS>
               <MAJOR.STATUS>
                 <MAJOR.CIRCLE>
@@ -125,7 +145,7 @@ const EquipmentStatus = ({ style }) => {
                     size="sm"
                   ></StatusCircle>
                 </MAJOR.CIRCLE>
-                <MAJOR.STATUSCNT>15</MAJOR.STATUSCNT>
+                <MAJOR.STATUSCNT>{leftStatus[index].TROUBLE}</MAJOR.STATUSCNT>
               </MAJOR.STATUS>
             </NmsBox>
           );
@@ -134,8 +154,8 @@ const EquipmentStatus = ({ style }) => {
       <DIV2>
         {KIMPO.map((data, index) => {
           return (
-            <NmsBox key={String(index)} data={data} style={BOX.style}>
-              <ERRORCNT>160</ERRORCNT>
+            <NmsBox key={String(index)} data={data} style={BOX.rightStyle}>
+              <ERRORCNT>{rightStatus[index].EQUIPMENT_COUNT}</ERRORCNT>
               <CRITICAL.STATUS>
                 <CRITICAL.CIRCLE>
                   <StatusCircle
@@ -143,7 +163,9 @@ const EquipmentStatus = ({ style }) => {
                     size="sm"
                   ></StatusCircle>
                 </CRITICAL.CIRCLE>
-                <CRITICAL.STATUSCNT>1</CRITICAL.STATUSCNT>
+                <CRITICAL.STATUSCNT>
+                  {rightStatus[index].CRITICAL}
+                </CRITICAL.STATUSCNT>
               </CRITICAL.STATUS>
               <MAJOR.STATUS>
                 <MAJOR.CIRCLE>
@@ -152,7 +174,7 @@ const EquipmentStatus = ({ style }) => {
                     size="sm"
                   ></StatusCircle>
                 </MAJOR.CIRCLE>
-                <MAJOR.STATUSCNT>15</MAJOR.STATUSCNT>
+                <MAJOR.STATUSCNT>{rightStatus[index].TROUBLE}</MAJOR.STATUSCNT>
               </MAJOR.STATUS>
             </NmsBox>
           );

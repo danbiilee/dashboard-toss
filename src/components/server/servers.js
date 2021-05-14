@@ -63,7 +63,8 @@ const Servers = ({ type, list, isDevelop, index }) => {
     <Wrapper style={style}>
       <div className="center">
         <div className={isDevelop ? "noWrap" : "wrap"}>
-          {list && list.map((item) => <Server key={item.ID} server={item} />)}
+          {list &&
+            list.map((item, index) => <Server key={index} server={item} />)}
         </div>
       </div>
     </Wrapper>

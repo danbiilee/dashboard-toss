@@ -19,8 +19,8 @@ const initialStateOfSlice = {
 export const fetchSMS = createAsyncThunk(
   `${SLICE_NAME}/fetchSMS`,
   async (param) => {
-    const apiId = API_ID[param];
-    const url = `${API_URL}/${SMS}/${apiId}`;
+    const apiId = API_ID.sms[param];
+    const url = `${API_URL}/${SMS}/${apiId}/${SMS_CONFIG[param].start}/${SMS_CONFIG[param].end}`;
     const response = await callAPI(url);
     return response;
   }
@@ -33,15 +33,20 @@ export const slice = createSlice({
   extraReducers: {
     [fetchSMS.pending]: (state, action) => {
       const { arg } = action.meta;
+
       state[arg].isLoading = true;
     },
+
     [fetchSMS.fulfilled]: (state, action) => {
       const { arg } = action.meta;
+
       state[arg].isLoading = false;
       state[arg].list = action.payload.list;
     },
-    [fetchSMS.rejcted]: (state, action) => {
+
+    [fetchSMS.rejected]: (state, action) => {
       const { arg } = action.meta;
+
       state[arg].isLoading = false;
       state[arg].isError = true;
     },

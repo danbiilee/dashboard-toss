@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   .title {
     display: flex;
     align-items: center;
+    padding: 0 5px;
     ${(props) =>
       props.isDevelop
         ? css`
@@ -20,6 +21,8 @@ const Wrapper = styled.div`
             margin-bottom: 13px;
           `
         : css`
+            width: 770px;
+            justify-content: space-between;
             margin-bottom: 8px;
           `}
     h3 {
@@ -29,23 +32,15 @@ const Wrapper = styled.div`
 `;
 
 const ServerGroup = ({ type, list }) => {
-  const { groups } = SMS_CONFIG[type];
   const isDevelop = type.includes("side"); // 개발/테스트, 본사 영역 여부
 
   return (
     <Wrapper isDevelop={isDevelop}>
-      {list &&
+      {list.length > 0 ? (
         list.map((item, index) => (
-          <div className="inner" key={item.GROUP_ID}>
+          <div className="inner" key={index}>
             <div className="title">
-              {!isDevelop && (
-                <h3>
-                  {
-                    groups.find((group) => group.resourceId === item.GROUP_ID)
-                      .groupName
-                  }
-                </h3>
-              )}
+              {!isDevelop && <h3>{item.GROUP_NAME}</h3>}
               <StatusCircleBar data={item} />
             </div>
             <Servers
@@ -55,7 +50,17 @@ const ServerGroup = ({ type, list }) => {
               index={index}
             />
           </div>
-        ))}
+        ))
+      ) : (
+        <div className="inner">
+          <div className="title">
+            <StatusCircleBar
+              data={{ CRITICAL: 0, TROUBLE: 0, MAINTENANCE: 0 }}
+            />
+          </div>
+          <Servers type={type} list={[]} isDevelop={isDevelop} />
+        </div>
+      )}
     </Wrapper>
   );
 };

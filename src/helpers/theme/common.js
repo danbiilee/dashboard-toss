@@ -27,7 +27,7 @@ const common = {
     },
     nms: {
       activeBackground: color.black,
-      activeBorderTop: `5px solid ${color.skyblue}`,
+      activeBorderTop: `5px solid ${color.green}`,
       activeColor: color.white,
       background: color.darkGrey3,
       inactiveColor: color.darkGrey4,

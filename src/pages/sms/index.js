@@ -32,6 +32,13 @@ const SMSPage = () => {
     dispatch(fetchSMS("right"));
     dispatch(fetchSMS("sidetop"));
     dispatch(fetchSMS("sidebottom"));
+    const id = setInterval(() => {
+      dispatch(fetchSMS("left"));
+      dispatch(fetchSMS("right"));
+      dispatch(fetchSMS("sidetop"));
+      dispatch(fetchSMS("sidebottom"));
+    }, GLOBAL_CONFIG.setInterval * 1000);
+    return () => clearInterval(id);
   }, [dispatch]);
 
   return (

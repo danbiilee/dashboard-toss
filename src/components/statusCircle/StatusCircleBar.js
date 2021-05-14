@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     &:not(:last-of-type)::after {
       content: "|";
       margin: 0 10px;
-      color: #d6d8de;
+      color: ${(props) => (props.page === "sms" ? "#d6d8de" : "#2c2e32")};
     }
   }
   .status-value {

@@ -33,23 +33,26 @@ const Value = styled.div`
   color: ${(props) =>
     props.isOver ? props.theme.color.statusColor(props.status) : "#66e7ff"};
   font-size: 15px;
+  p {
+    ${(props) => props.theme.common.ellipsis}
+  }
 `;
 
 const Updown = ({ data }) => {
-  const criticalValue = 15; // 임시 임계치
+  const criticalValue = 0;
 
   return (
     <Wrapper>
       <div className="box">
         <Key>UP</Key>
-        <Value status={data.status} isOver={data.up_cnt >= criticalValue}>
-          {data.up_cnt}
+        <Value>
+          <p>{data.UP}</p>
         </Value>
       </div>
       <div className="box">
         <Key>DOWN</Key>
-        <Value status={data.status} isOver={data.down_cnt >= criticalValue}>
-          {data.down_cnt}
+        <Value status="DOWN" isOver={data.DOWN > criticalValue}>
+          <p>{data.DOWN}</p>
         </Value>
       </div>
     </Wrapper>

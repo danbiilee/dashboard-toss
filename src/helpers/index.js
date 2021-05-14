@@ -29,3 +29,7 @@ export const resize = () => {
     transformOrigin: "0% 0%",
   });
 };
+
+export const goEMSPage = (id) => {
+  window.open(`${GLOBAL_CONFIG.EMS_SITE}/management/resourcedetail/${id}`);
+};

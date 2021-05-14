@@ -15,17 +15,51 @@ const initialApiId = {
     sidetop: "",
     sidebottom: "",
   },
-  nms: {},
+  nms: {
+    nonhyeon: {
+      left: "",
+      equipment: "",
+      line1: "",
+      line2: "",
+      service: "",
+    },
+    kimpo: {
+      right: "",
+      equipment: "",
+      line1: "",
+      line2: "",
+      service: "",
+    },
+  },
 };
 
 window.API_ID = initialApiId;
 
-const setApiId = (type, config) => {
-  const keys = Object.keys(initialApiId[type]);
+const setSMSApiId = (config) => {
+  const keys = Object.keys(initialApiId[SMS]);
 
   keys.forEach((key) => {
     const ids = config[key].groups.map((elem) => elem.resourceId);
-    API_ID[type][key] = ids.join(",");
+    API_ID[SMS][key] = ids.join(",");
+  });
+};
+
+const setNMSApiId = (centername, config) => {
+  const keys = Object.keys(initialApiId[NMS][centername]);
+
+  keys.forEach((key) => {
+    let ids;
+
+    if (key === "line1" || key === "line2" || key === "service") {
+      const idsInNestedArr = config[key].map((outerEl) => {
+        return outerEl.groups.map((innerEl) => innerEl.resourceId);
+      });
+      ids = idsInNestedArr.flat();
+    } else {
+      ids = config[key].map((elem) => elem.resourceId);
+    }
+
+    API_ID[NMS][centername][key] = ids.join(",");
   });
 };
 
@@ -45,7 +79,9 @@ const setApiId = (type, config) => {
   if (window.GLOBAL_CONFIG.isLocal)
     window.API_URL = window.GLOBAL_CONFIG.API_URL.local;
 
-  setApiId(SMS, SMS_CONFIG);
+  setSMSApiId({ ...SMS_CONFIG });
+  setNMSApiId("nonhyeon", { ...NMS_NONHYEON_CONFIG });
+  setNMSApiId("kimpo", { ...NMS_KIMPO_CONFIG });
 
   render(
     <HashRouter>

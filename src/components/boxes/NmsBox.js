@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const DIV = styled.div`
   display: inline-block;
+  min-width: 0;
   height: 100%;
   background-color: #17191b;
   margin-right: 11px;
@@ -13,30 +14,34 @@ const H2 = styled.h2`
   height: 53px;
   justify-content: center;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 12pt;
   background-color: ${(props) => statusColor(props.status)};
   // background-color: #1f2127;
   color: white;
 `;
 const statusColor = (props) => {
   switch (props) {
-    case 0: {
-      return "#a52521";
-    }
-    case 1: {
-      return "#ce6111";
-    }
-    default: {
-      return "#1f2127";
-    }
+    case "CRITICAL":
+    case "DOWN":
+      return "#d43f3a"; // red
+    case "TROUBLE":
+    case "UNKNOWN":
+      return "#ff8417"; // orange
+    case "ATTENTION":
+      return "yellow"; // yellow
+    case "NORMAL":
+    case "UP":
+      return "#1f2127"; // green
+    case "MAINTENANCE":
+      return "#8c9497"; // gray
+    default:
+      return "#1f2127"; // 임시
   }
 };
 const NmsBox = ({ data, style, children }) => {
   return (
     <DIV style={style}>
-      <H2 style={style} status={data.STATUS}>
-        {data.NAME}
-      </H2>
+      <H2 status={data.STATUS}>{data.NAME}</H2>
       {children}
     </DIV>
   );

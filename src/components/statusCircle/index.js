@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.span`
   display: inline-block;
+  min-width: ${(props) => (props.size === "lg" ? 14 : 12)}px;
   width: ${(props) => (props.size === "lg" ? 14 : 12)}px;
   height: ${(props) => (props.size === "lg" ? 14 : 12)}px;
   border-radius: 50%;
