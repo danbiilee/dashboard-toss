@@ -23,6 +23,7 @@ const App = () => {
         <Header />
         <S.BackgroundImage className="bg" />
         <Switch>
+          {/* 라우트 컴포넌트 수정하기 */}
           <Route exact path="/" component={SMSPage} />
           <Route className="nms" path="/nms" component={NMSPage} />
         </Switch>
